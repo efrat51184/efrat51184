@@ -1,6 +1,6 @@
 
 body {
-  background-image:url('M:\sign-language-project\src\assets\background.jpg') ;
+  // background-image:url('M:\sign-language-project\src\assets\background.jpg') ;
   background-repeat: no-repeat;
   background-size: cover;
  
@@ -34,7 +34,7 @@ body {
     background-color: red;
   } */
   li div:hover, .dropdown:hover .dropbtn {
-    font-color: red;
+    color: red;
   }
   
   li.dropdown {

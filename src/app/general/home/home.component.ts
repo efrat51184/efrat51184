@@ -3,8 +3,7 @@ import { Router } from '@angular/router';
 import { SignService } from 'src/app/services/sign.service';
 import { Word } from 'src/app/models/word';
 import { TextService } from 'src/app/services/text.service';
-import { Component, OnInit, Output } from '@angular/core';
-
+import { EventEmitter,Component, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,13 +11,9 @@ import { Component, OnInit, Output } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 b:boolean=false;
-ass:boolean=true;
-a:number[]=[1,2,3,4]
-
 NumWord!:boolean;
 @Output()
-selectedSignArray!:Word[]
-selectedTextArray!:Text[]
+onChangeType:EventEmitter<string>=new EventEmitter<string>()
   constructor(private _router:Router,private signService:SignService,private textService:TextService) { }
   ngOnInit(): void {
     
@@ -38,10 +33,15 @@ selectedTextArray!:Text[]
   getSign(name:string)
   {
     if(name=='Letters')
-    this._router.navigate(["displaySign",{signArray:"Letters"}])
+    {
+    this.onChangeType.emit('Letters')
+    }
     else
-    
-    this._router.navigate(["displaySign",{signArray:"Numbers"}])
+    {
+    this.onChangeType.emit('Numbers')
+     }
+     this._router.navigate(["displaySign"])
+
   }
   getText(name:string)
   {

@@ -41,7 +41,7 @@ const APP_ROOT:Route[]=[
     AppRoutingModule,
     LogonModule,
     FormsModule,
-    CommonModule,ReactiveFormsModule,MatRadioModule
+    CommonModule,ReactiveFormsModule,MatRadioModule,
   ],
   declarations: [
     AppComponent

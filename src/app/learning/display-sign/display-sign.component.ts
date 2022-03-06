@@ -13,17 +13,29 @@ import { SignService } from '../../services/sign.service';
 export class DisplaySignComponent implements OnInit {
   
   selectedSignArray!:Word[]
+  NumbersSignArray!:Word[]
+  LettersSignArray!:Word[]
+
  type!:string
   constructor(private route:ActivatedRoute,private signService:SignService ) { 
     this.route.params.subscribe(params => {
       this.type = params['signArray']; });
-    if(this.type=='Letters')
-    this.signService.getletterArray().subscribe(data =>this.selectedSignArray=data)
-    else
-    this.signService.getnumberArray().subscribe(data =>this.selectedSignArray=data)
-  }
+  
+    // if(this.type=='Letters')
+    // this.selectedSignArray=this.LettersSignArray
+    // else
+    // this.selectedSignArray=this.NumbersSignArray
 
+  }
+  changeArray(e:string)
+  {
+    if(e=='Letters')
+    this.selectedSignArray=this.LettersSignArray
+    else
+    this.selectedSignArray=this.NumbersSignArray
+  }
   ngOnInit(): void {
-    
+    this.signService.getletterArray().subscribe(data =>this.LettersSignArray=data)
+    this.signService.getnumberArray().subscribe(data =>this.NumbersSignArray=data)
   } 
 }

@@ -75,7 +75,8 @@
               "browserTarget": "sign-language-project:build:production"
             },
             "development": {
-              "browserTarget": "sign-language-project:build:development"
+              "browserTarget": "sign-language-project:build:development",
+              "proxyConfig": "src/proxy.config.json"
             }
           },
           "defaultConfiguration": "development"
@@ -99,6 +100,7 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.scss"
             ],
             "scripts": []

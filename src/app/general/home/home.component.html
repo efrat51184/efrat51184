@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html >
+<body  >
+  <br> <br>
+  <div  > 
+    <ul class="row"  >
+     
+        <li><div><br><img  src="/assets/home.png" width="65" height ="65"><br><a (click)="navigate('home')">Home</a></div></li>
+        <li id="about"><div style="margin-left: 90;"><br><img for="about" src="/assets/about.png"width="65" height ="65"><br><a (click)="navigate('about')">About</a></div></li>
+        <li><div><br><img src="/assets/document.png" width="65" height ="65" ><br><a  (click)="navigate('home')">Instructions </a></div></li>
+     
+        <li class="dropdown">
+          <div><br><img  src="/assets/numbers.png" width="65" height ="65"><br>
+          <a href="javascript:void(0)" class="dropbtn">Numbers</a></div>
+          <ul class="dropdown-content">
+           <a (click)="getText('Numbers')">practice</a>
+             <a (click)="getSign('Numbers')">study</a>
+            <a  routerLink="/home">test</a>
+          </ul>
+        </li>
+        <li class="dropdown">
+         <div><br>
+          <img  src="/assets/abc.png" width="65" height ="65"><br>
+          <a href="javascript:void(0)" class="dropbtn">Letters</a></div>
+          <ul class="dropdown-content">
+           <a (click)="getText('Letters')">practice</a>
+             <a (click)="getSign('Letters')">study</a>
+            <a  (click)="navigate('home')">test</a>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <img src="/assets/login.png" href="javascript:void(0)" class="dropbtn" width="90">
+          <!-- <a (click)="navigate('about')"></a> -->
+          <!-- <a href="javascript:void(0)" class="dropbtn">Private Area</a> -->
+          <ul class="dropdown-content">
+           <a  (click)="navigate('register')">Sign Up</a>
+             <a (click)="navigate('login')">Login</a>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- <mat-radio-group aria-label="Select an option">
+      <mat-radio-button value="1">Option 1</mat-radio-button>
+      <mat-radio-button value="2">Option 2</mat-radio-button>
+    </mat-radio-group> -->
+</body>
+</html>

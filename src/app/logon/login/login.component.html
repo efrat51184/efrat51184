@@ -1,0 +1,24 @@
+
+  <form [formGroup]="loginForm">
+<div  class="text-center border border-light p-5" style="width: 500px;margin-left: 660px;margin-top: 150px ; border: 10px; border-top: coral;  ">
+
+  <p class="h4 mb-4"  >login</p>
+  <button (click)="loginNavigate('home')"  style="background-color: white; border: white; color: blue;text-decoration: underline;">For entry without registration</button>
+ 
+  <!-- Name -->
+  <input #password formControlName="userPassword" type="text" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Password">
+
+  <!-- Email -->
+  <input #email  formControlName="userEmail" type="email" id="defaultSubscriptionFormEmail" class="form-control mb-4" placeholder="E-mail">
+ 
+ 
+
+  <!-- Sign in button -->  
+
+  <button (click)="signin()" mdbBtn color="info" block="true" type="submit" class="form-control mb-4" style=" margin: 25px 50px 75px 100px;background-color: cornflowerblue;" >Sign in</button>
+  
+  <button (click)="loginNavigate('register')" style="background-color: white; border: white; color: blue;text-decoration: underline;">Don't have an account yet? register>></button>
+</div>
+
+
+</form>

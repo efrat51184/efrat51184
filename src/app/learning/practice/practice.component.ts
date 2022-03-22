@@ -27,7 +27,7 @@ export class PracticeComponent implements OnInit, AfterContentChecked {
     goodAns:number=0
     displayCompletionGame:boolean=false; 
     f:boolean=false;
- 
+ //k
    
     constructor(private route:ActivatedRoute,private _router:Router,private textService:TextService,private signService:SignService, private changeDetector: ChangeDetectorRef) {
       

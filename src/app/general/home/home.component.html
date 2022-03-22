@@ -3,15 +3,23 @@
 <body  >
   <br> <br>
   <div  > 
-    <ul class="row"  >
+    <ul class="row" >
      
-        <li><div><br><img  src="/assets/home.png" width="65" height ="65"><br><a (click)="navigate('home')">Home</a></div></li>
-        <li id="about"><div style="margin-left: 90;"><br><img for="about" src="/assets/about.png"width="65" height ="65"><br><a (click)="navigate('about')">About</a></div></li>
-        <li><div><br><img src="/assets/document.png" width="65" height ="65" ><br><a  (click)="navigate('home')">Instructions </a></div></li>
+        <li    
+        ><div ><br><img  style=" margin-left:19%" src="/assets/home.png" width="65" height ="65"><br><a  style="top:50%; margin-left: 15%;"(click)="navigate('home')">Home</a></div></li>
+        <li id="about"><div style="margin-left: 90;" width="114.05" height="141"><br><img style=" margin-left:17%" for="about" src="\assets\about (2).png"width="65" height ="65"><br><a style="margin-left: 15%;" (click)="navigate('about')">About</a></div></li>
+        <li>
+          <div>
+            <br>
+            
+            <img style="margin-left: 18%;" src="\assets\file.png" width="65" height ="65" >
+            <br><a  (click)="navigate('home')">Instructions </a>
+          </div>
+        </li>
      
         <li class="dropdown">
-          <div><br><img  src="/assets/numbers.png" width="65" height ="65"><br>
-          <a href="javascript:void(0)" class="dropbtn">Numbers</a></div>
+          <div><br><img style=" margin-left:20%" src="/assets/numbers.png" width="65" height ="65"><br>
+          <a style="margin-left: 11%;" href="javascript:void(0)" class="dropbtn">Numbers</a></div>
           <ul class="dropdown-content">
            <a (click)="getText('Numbers')">practice</a>
              <a (click)="getSign('Numbers')">study</a>
@@ -20,16 +28,16 @@
         </li>
         <li class="dropdown">
          <div><br>
-          <img  src="/assets/abc.png" width="65" height ="65"><br>
-          <a href="javascript:void(0)" class="dropbtn">Letters</a></div>
+          <img  style=" margin-left:17%" src="/assets/abc.png" width="65" height ="65"><br>
+          <a href="javascript:void(0)" style=" margin-left:13%" class="dropbtn">Letters</a></div>
           <ul class="dropdown-content">
            <a (click)="getText('Letters')">practice</a>
              <a (click)="getSign('Letters')">study</a>
             <a  (click)="navigate('home')">test</a>
           </ul>
         </li>
-        <li class="dropdown">
-          <img src="/assets/login.png" href="javascript:void(0)" class="dropbtn" width="90">
+        <li class="dropdown" style="left:1350px;top:20px">
+          <img   width="130" height ="120" src="\assets\about (1).png" href="javascript:void(0)" class="dropbtn" >
           <!-- <a (click)="navigate('about')"></a> -->
           <!-- <a href="javascript:void(0)" class="dropbtn">Private Area</a> -->
           <ul class="dropdown-content">
@@ -39,9 +47,8 @@
         </li>
       </ul>
     </div>
-    <!-- <mat-radio-group aria-label="Select an option">
-      <mat-radio-button value="1">Option 1</mat-radio-button>
-      <mat-radio-button value="2">Option 2</mat-radio-button>
-    </mat-radio-group> -->
+
 </body>
+
+
 </html>

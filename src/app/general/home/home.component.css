@@ -1,6 +1,6 @@
 
 body {
-  // background-image:url('M:\sign-language-project\src\assets\background.jpg') ;
+  /* background-image:url('/assets/background.jpg') ; */
   background-repeat: no-repeat;
   background-size: cover;
  
@@ -10,11 +10,12 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: rgb(90, 88, 88);
+    background-color: rgb(202, 34, 34);
   } 
   
   li {
     float: left;
+    width:114.05px
   }
   
   li a, .dropbtn {
@@ -23,6 +24,7 @@ body {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+
   }
   div{
     margin-left:30;
@@ -33,9 +35,10 @@ body {
   /* li a:hover, .dropdown:hover .dropbtn {
     background-color: red;
   } */
-  li div:hover, .dropdown:hover .dropbtn {
-    color: red;
-  }
+  /* li div:hover, .dropdown:hover .dropbtn {
+    /* background-color: red; */
+    /* font-c: red; */
+  /* } */ */
   
   li.dropdown {
     display: inline-block;
@@ -64,4 +67,35 @@ body {
   }
   .mat-radio-button ~ .mat-radio-button {
     margin-left: 16px;
+  }
+  section {
+    display: table;
+  }
+  
+  .example-label {
+    display: table-cell;
+    font-size: 14px;
+    margin-left: 8px;
+    min-width: 120px;
+  }
+  
+  .example-button-row {
+    display: table-cell;
+    width: 490px;
+  }
+  
+  .example-button-row .mat-button-base {
+    margin: 8px 8px 8px 0;
+  }
+  
+  .example-flex-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
   }

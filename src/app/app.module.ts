@@ -17,9 +17,9 @@ import { GeneralModule } from './general/general.module';
 import { LoginService } from './services/login.service';
 import { SignService } from './services/sign.service';
 import { TextService } from './services/text.service';
+// import { MatSliderModule } from '@angular/material/slider';
 
-import {MatRadioModule} from '@angular/material/radio';
-// ,MatRadioModule
+// import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -41,7 +41,8 @@ const APP_ROOT:Route[]=[
     AppRoutingModule,
     LogonModule,
     FormsModule,
-    CommonModule,ReactiveFormsModule,MatRadioModule,
+    CommonModule,ReactiveFormsModule
+    // ,MatRadioModule,MatSliderModule
   ],
   declarations: [
     AppComponent

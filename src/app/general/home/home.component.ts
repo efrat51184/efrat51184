@@ -4,26 +4,33 @@ import { SignService } from 'src/app/services/sign.service';
 import { Word } from 'src/app/models/word';
 import { TextService } from 'src/app/services/text.service';
 import { EventEmitter,Component, OnInit, Output } from '@angular/core';
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
+// import {ErrorStateMatcher} from '@angular/material/core';
+// import {MatDividerModule} from '@angular/material/divider';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-b:boolean=false;
-NumWord!:boolean;
+flag:boolean=false;
+displayImage:boolean=true;
 @Output()
-onChangeType:EventEmitter<string>=new EventEmitter<string>()
-  constructor(private _router:Router,private signService:SignService,private textService:TextService) { }
+onChangeTypeStudy:EventEmitter<string>=new EventEmitter<string>()
+@Output()
+onChangeTypePractice:EventEmitter<string>=new EventEmitter<string>()
+  constructor(private _router:Router,private signService:SignService,private textService:TextService, private radio:MatRadioModule) { }
   ngOnInit(): void {
     
   }
   openDropDown()
   {
-    if(this.b)
-    this.b=false;
+    if(this.flag)
+    this.flag=false;
     else
-    this.b=true;
+    this.flag=true;
   }
   navigate(page:string)
   {
@@ -32,27 +39,31 @@ onChangeType:EventEmitter<string>=new EventEmitter<string>()
  
   getSign(name:string)
   {
+
     if(name=='Letters')
     {
-    this.onChangeType.emit('Letters')
+      this._router.navigate(["displaySign",{type:'Letters'}])
+
+    this.onChangeTypeStudy.emit('Letters')
     }
     else
     {
-    this.onChangeType.emit('Numbers')
+      this._router.navigate(["displaySign",{type:'Numbers'}])
+    this.onChangeTypeStudy.emit('Numbers')
      }
-     this._router.navigate(["displaySign"])
 
   }
   getText(name:string)
   {
     if(name=='Letters')
-    this._router.navigate(["practice",{type:"Letters"}]);
+    {
+      this.onChangeTypePractice.emit("Letters")
+      this._router.navigate(["practice",{type:'Letters'}])
+    }
     else
     {
-    this._router.navigate(["practice",{type:"Numbers"}]);
+      this.onChangeTypePractice.emit("Numbers")
+      this._router.navigate(["practice",{type:'Numbers'}])
+    }
   }
-  
-
-  }
-  
   }

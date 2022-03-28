@@ -1,0 +1,30 @@
+<app-home (onChangeTypeStudy)="changeArray($event)"></app-home>
+<div *ngIf="type=='Numbers'">
+
+  <div style="display:inline-block; margin: 30px;" *ngFor="let sign of NumbersSignArray" class="col-sm-2">
+    <div class="card">
+      <button class="card-body">
+        <h4 style="font-size:200px"><strong>{{sign.nameWord}}</strong></h4>
+      </button>
+    </div>
+  </div>
+</div>
+<div *ngIf="type=='Letters'">
+  <div style="display:inline-block; margin: 30px;" *ngFor="let sign of LettersSignArray" class="col-sm-2">
+    <div class="card">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+        <div class="modal fade" id="exampleModalCenter">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-body">
+              <button
+                style="position: fixed; margin-left: 95.5%; background-color: transparent;border-color: transparent;font-size: 100%;"
+                type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
+              <img src="{{sign.signWord}}">
+            </div>
+          </div>
+        </div>
+        <h4 style="font-size:200px"><strong>{{sign.nameWord}}</strong></h4>
+      </button>
+    </div>
+  </div>
+</div>

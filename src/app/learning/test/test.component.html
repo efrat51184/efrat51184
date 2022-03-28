@@ -1,0 +1,16 @@
+<app-home ></app-home>
+<label for="">lets translate the sign.</label><br>
+<img style=" margin-left:30%" src="\assets\picture signs\1.png" width="250" height ="500"><br>
+<div class="input-group input-group-lg" style="width: 10%;">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-lg">Answer</span>
+    </div>
+   
+</div>
+<form [formGroup]="testForm">
+<input type="text" id="answer" formControlName="answer" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm">
+</form>
+<label>{{randNum}}</label>
+<button (click)="finish()">finish</button>
+<img src="\assets\check-mark.png" *ngIf="isGood==true">
+{{testForm.value.answer}}

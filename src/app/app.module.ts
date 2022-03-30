@@ -4,6 +4,7 @@ import { Route, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,9 +20,10 @@ import { GeneralModule } from './general/general.module';
 import { LoginService } from './services/login.service';
 import { SignService } from './services/sign.service';
 import { TextService } from './services/text.service';
-import { DialogComponent } from './learning/dialog/dialog.component';
 import { TestComponent } from './learning/test/test.component';
 import { LearningModule } from './learning/learning.module';
+import { MemoryGameComponent } from './learning/memory-game/memory-game.component';
+import { GameCardComponent } from './learning/game-card/game-card.component';
 // import { MatSliderModule } from '@angular/material/slider';
 
 // import {MatRadioModule} from '@angular/material/radio';
@@ -35,10 +37,16 @@ import { LearningModule } from './learning/learning.module';
     AppRoutingModule,
     LogonModule,
     FormsModule,
-    CommonModule, ReactiveFormsModule, MatDialogModule, MatStepperModule,GeneralModule,LearningModule
+    CommonModule,
+     ReactiveFormsModule, 
+     MatDialogModule, 
+     MatStepperModule,
+     GeneralModule,
+     LearningModule,BrowserAnimationsModule
   ],
   declarations: [
     AppComponent,
+ 
   ],
 
   providers: [LoginService, TextService],

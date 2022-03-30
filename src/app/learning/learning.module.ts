@@ -10,10 +10,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatStepperModule } from '@angular/material/stepper';
 import { TestComponent } from './test/test.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { GameCardComponent } from './game-card/game-card.component';
+import { MemoryGameComponent } from './memory-game/memory-game.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @NgModule({
-  declarations: [DisplaySignComponent, PracticeComponent, TestComponent],
-  imports: [GeneralModule, CommonModule, FormsModule, ReactiveFormsModule, MatDialogModule, MatStepperModule, MatFormFieldModule],
-  exports: [DisplaySignComponent]
+  declarations: [DisplaySignComponent, PracticeComponent, TestComponent,MemoryGameComponent, GameCardComponent],
+  imports: [GeneralModule, CommonModule, FormsModule, ReactiveFormsModule, MatDialogModule, MatStepperModule, MatFormFieldModule,MatToolbarModule,
+  ],
+  exports: [DisplaySignComponent,GameCardComponent]
 })
 export class LearningModule { }

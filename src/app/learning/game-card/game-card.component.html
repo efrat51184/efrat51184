@@ -1,0 +1,11 @@
+<div class="card" (click)="cardClicked.emit()" [@cardFlip]="data.state">
+    <div class="face back">
+        <!-- <img src="'C:\efrat51184-main\src\assets\article1.jpg' + data.imageId + '/200x300'" > -->
+        <img src="\assets\back_card.jpg">
+
+ </div>
+    <div class="face front">
+        <img [src]="'https://source.unsplash.com/' + data.imageId + '/200x300'">
+
+    </div>
+</div>

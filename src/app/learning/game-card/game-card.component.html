@@ -4,8 +4,13 @@
         <img src="\assets\back_card.jpg">
 
  </div>
-    <div class="face front">
-        <img [src]="'https://source.unsplash.com/' + data.imageId + '/200x300'">
-
+    <div class="face front">        
+        <div *ngIf="data.imageId[0]==2;else elseBlock">
+            <!-- {{a()}} -->
+            <img style="height: 148px;width: 198px;" src='{{data.imageId[1]}}'>
+        </div>
+        <ng-template #elseBlock>
+            <h1  style="position: relative; left: 28%;top: 2%;font-size:740%">{{data.imageId[1]}}</h1>     
+             </ng-template>
     </div>
 </div>

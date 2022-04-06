@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Route, RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './general/about/about.component';
 import { HomeComponent } from './general/home/home.component';
+import { CompletionGameComponent } from './learning/completion-game/completion-game.component';
 import { DisplaySignComponent } from './learning/display-sign/display-sign.component';
 import { GameCardComponent } from './learning/game-card/game-card.component';
 import { MemoryGameComponent } from './learning/memory-game/memory-game.component';
@@ -22,6 +23,9 @@ const APP_ROOT: Route[] = [
   { path: "test", component: TestComponent },
   {path:"gameCard", component:GameCardComponent},
   {path:"memoryGame", component:MemoryGameComponent},
+  {path:"completionGame", component:CompletionGameComponent},
+
+  
 
 ]
 

@@ -24,6 +24,7 @@ import { TestComponent } from './learning/test/test.component';
 import { LearningModule } from './learning/learning.module';
 import { MemoryGameComponent } from './learning/memory-game/memory-game.component';
 import { GameCardComponent } from './learning/game-card/game-card.component';
+import { CompletionGameComponent } from './learning/completion-game/completion-game.component';
 // import { MatSliderModule } from '@angular/material/slider';
 
 // import {MatRadioModule} from '@angular/material/radio';
@@ -45,7 +46,7 @@ import { GameCardComponent } from './learning/game-card/game-card.component';
      LearningModule,BrowserAnimationsModule
   ],
   declarations: [
-    AppComponent,
+    AppComponent
  
   ],
 

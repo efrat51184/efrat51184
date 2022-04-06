@@ -15,10 +15,16 @@ import { MemoryGameComponent } from './memory-game/memory-game.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
+
+import { BrowserAnimationsModule } 
+    from "@angular/platform-browser/animations";
+import { StepsModule } from "primeng/steps";
+import { ToastModule } from "primeng/toast";
+import { CompletionGameComponent } from './completion-game/completion-game.component';
 @NgModule({
-  declarations: [DisplaySignComponent, PracticeComponent, TestComponent,MemoryGameComponent, GameCardComponent],
+  declarations: [DisplaySignComponent, PracticeComponent, TestComponent,MemoryGameComponent, GameCardComponent,CompletionGameComponent],
   imports: [GeneralModule, CommonModule, FormsModule, ReactiveFormsModule, MatDialogModule, MatStepperModule, MatFormFieldModule,MatToolbarModule,
-  ],
-  exports: [DisplaySignComponent,GameCardComponent]
+  BrowserAnimationsModule,StepsModule,ToastModule],
+  exports: [DisplaySignComponent,GameCardComponent,PracticeComponent]
 })
 export class LearningModule { }

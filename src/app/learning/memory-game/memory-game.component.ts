@@ -2,7 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { CardData } from 'src/app/cardData';
+import { Word } from 'src/app/models/word';
+import { Text } from 'src/app/models/text';
+
 import { DisplayDialogComponent } from '../display-dialog/display-dialog.component';
+import { TextService } from 'src/app/services/text.service';
+import { SignService } from 'src/app/services/sign.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-memory-game',
@@ -10,22 +16,54 @@ import { DisplayDialogComponent } from '../display-dialog/display-dialog.compone
   styleUrls: ['./memory-game.component.scss']
 })
 export class MemoryGameComponent implements OnInit {
-  cardImages = [
-    'pDGNBK9A0sk',
-    'fYDrhbVlV1E',
-    'qoXgaF27zBc',
-    'b9drVB7xIOI',
-    'TQ-q5WAVHj0'
-  ];
+  signLetters:Word[]=[]
+  signNumbers:Word[]=[]
+  size!:number
+  type!:string  
+  nextState!: 'default' | 'flipped' | 'matched';
+  cardImagesLetters:[number,string][] = []
+  cardImagesNumbers :[number,string][] = []
+  cardImages :[number,string][] = []
 
 cards: CardData[] = [];
 flippedCards: CardData[] = [];
 matchedCount:number=0
-  constructor(private dialog: MatDialog) { }
+  constructor(private route:ActivatedRoute,private dialog: MatDialog,private signService:SignService) { }
+w!:Word
+w1!:Word
 
   ngOnInit(): void {
-    this.setupCards();
+    this.type = this.route.snapshot.params['type'];
+    this.w=new Word(1,1,'a','/assets/picture signs/a.png')
+    this.w1=new Word(1,1,'b','/assets/picture signs/b.png')
+    this.signLetters.push(this.w)
 
+    this.signLetters.push(this.w1)
+    // this.signService.getletterArray().subscribe(data =>{this.signLetters=data})
+    //   this.signService.getnumberArray().subscribe(data =>{this.signNumbers=data})
+      this.signLetters.forEach(element => {
+        this.cardImagesLetters.push([1,element.nameWord]);
+        this.cardImagesLetters.push([2,element.signWord]);
+
+      });
+      this.signNumbers.forEach(element => {
+        this.cardImagesNumbers.push([1,element.nameWord]);
+        this.cardImagesNumbers.push([1,element.nameWord]);
+
+      });
+      if(this.type='Letters')
+       this.cardImages= this.cardImagesLetters
+       else
+      this.cardImages= this.cardImagesNumbers
+      this.setupCards();
+  }
+  changeType(e:string)
+  {
+   this.type=e
+   if(this.type='Letters')
+   this.cardImages= this.cardImagesLetters
+   else
+   this.cardImages= this.cardImagesNumbers
   }
 setupCards(): void {
   this.cards = [];
@@ -35,9 +73,7 @@ setupCards(): void {
       state: 'default'
     };
 
-    this.cards.push({ ...cardData });
-    this.cards.push({ ...cardData });
-
+    this.cards.push(cardData);
   });
 
   this.cards = this.shuffleArray(this.cards);
@@ -69,26 +105,35 @@ checkForCardMatch(): void {
   setTimeout(() => {
     const cardOne = this.flippedCards[0];
     const cardTwo = this.flippedCards[1];
-    const nextState = cardOne.imageId === cardTwo.imageId ? 'matched' : 'default';
-    cardOne.state = cardTwo.state = nextState;
+    
+    if(cardOne.imageId[0]==2)
+    {
+       this.nextState = cardOne.imageId[1][22] === cardTwo.imageId[1] ? 'matched' : 'default';
+
+    }
+    else
+    {
+       this.nextState = cardTwo.imageId[1][22] === cardOne.imageId[1] ? 'matched' : 'default';
+
+    }
+    cardOne.state = cardTwo.state = this.nextState;
 
     this.flippedCards = [];
 
-    if (nextState === 'matched') {
+    if (this.nextState === 'matched') {
       this.matchedCount++;
 
-      if (this.matchedCount === this.cardImages.length) {
+      if (this.matchedCount === (this.cardImages.length/2)) {
         const dialogRef = this.dialog.open(DisplayDialogComponent, {
           disableClose: false
         });
-
+        this.restart();
         dialogRef.afterClosed().subscribe(() => {
-          this.restart();
         });
       }
     }
 
-  }, 1000);
+  }, 2500);
 }
 restart(): void {
   this.matchedCount = 0;

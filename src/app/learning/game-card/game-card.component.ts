@@ -35,5 +35,8 @@ export class GameCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+a()
+{
+  alert(this.data.imageId[1])
+}
 }

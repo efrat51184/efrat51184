@@ -11,8 +11,10 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatRadioModule} from '@angular/material/radio';
 import { MatRadioGroup } from '@angular/material/radio';
 import {MatRadioGroupHarness} from '@angular/material/radio/testing';
-
-
+import { StepsModule } from "primeng/steps";
+import { ToastModule } from "primeng/toast";
+import { BrowserAnimationsModule } 
+    from "@angular/platform-browser/animations"
 // import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 
@@ -20,6 +22,7 @@ import {MatRadioGroupHarness} from '@angular/material/radio/testing';
   declarations: [HomeComponent,AboutComponent],
   imports: [CommonModule, ReactiveFormsModule,FormsModule,BrowserModule,HttpClientModule,MatRadioModule
     // ,MatButtonToggleModule
+    ,StepsModule,ToastModule,BrowserAnimationsModule
   ],
   exports:[HomeComponent,MatRadioGroup]
  

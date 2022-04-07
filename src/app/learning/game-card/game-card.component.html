@@ -1,16 +1,15 @@
 <div class="card" (click)="cardClicked.emit()" [@cardFlip]="data.state">
-    <div class="face back">
+    <div  class="face back">
         <!-- <img src="'C:\efrat51184-main\src\assets\article1.jpg' + data.imageId + '/200x300'" > -->
-        <img src="\assets\back_card.jpg">
+        <img  src="\assets\back_card.jpg">
 
  </div>
     <div class="face front">        
         <div *ngIf="data.imageId[0]==2;else elseBlock">
-            <!-- {{a()}} -->
-            <img style="height: 148px;width: 198px;" src='{{data.imageId[1]}}'>
+            <img style="height: 228px;width: 198px;" src='{{data.imageId[1]}}'>
         </div>
-        <ng-template #elseBlock>
-            <h1  style="position: relative; left: 28%;top: 2%;font-size:740%">{{data.imageId[1]}}</h1>     
+        <ng-template #elseBlock >
+            <h1  style="position: relative; left: 28%;top: 1%;font-size:1000%">{{data.imageId[1]}}</h1>     
              </ng-template>
     </div>
 </div>

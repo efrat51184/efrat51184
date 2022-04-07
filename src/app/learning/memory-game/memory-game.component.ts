@@ -29,16 +29,25 @@ cards: CardData[] = [];
 flippedCards: CardData[] = [];
 matchedCount:number=0
   constructor(private route:ActivatedRoute,private dialog: MatDialog,private signService:SignService) { }
-w!:Word
+    //בשביל הדוגמא
+  w!:Word
 w1!:Word
-
+w2!:Word
+w3!:Word
   ngOnInit(): void {
+    //בשביל הדוגמא
     this.type = this.route.snapshot.params['type'];
     this.w=new Word(1,1,'a','/assets/picture signs/a.png')
     this.w1=new Word(1,1,'b','/assets/picture signs/b.png')
     this.signLetters.push(this.w)
 
     this.signLetters.push(this.w1)
+    this.w2=new Word(1,1,'1','/assets/picture signs/1.png')
+    this.w3=new Word(1,1,'2','/assets/picture signs/2.png')
+    this.signNumbers.push(this.w2)
+
+    this.signNumbers.push(this.w3)
+//כשמורידים את הדוגמא להוציא את זה 
     // this.signService.getletterArray().subscribe(data =>{this.signLetters=data})
     //   this.signService.getnumberArray().subscribe(data =>{this.signNumbers=data})
       this.signLetters.forEach(element => {
@@ -48,10 +57,10 @@ w1!:Word
       });
       this.signNumbers.forEach(element => {
         this.cardImagesNumbers.push([1,element.nameWord]);
-        this.cardImagesNumbers.push([1,element.nameWord]);
+        this.cardImagesNumbers.push([2,element.signWord]);
 
       });
-      if(this.type='Letters')
+      if(this.type=='Letters')
        this.cardImages= this.cardImagesLetters
        else
       this.cardImages= this.cardImagesNumbers
@@ -60,7 +69,7 @@ w1!:Word
   changeType(e:string)
   {
    this.type=e
-   if(this.type='Letters')
+   if(this.type=='Letters')
    this.cardImages= this.cardImagesLetters
    else
    this.cardImages= this.cardImagesNumbers
@@ -133,7 +142,7 @@ checkForCardMatch(): void {
       }
     }
 
-  }, 2500);
+  }, 1500);
 }
 restart(): void {
   this.matchedCount = 0;

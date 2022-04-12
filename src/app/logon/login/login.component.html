@@ -1,9 +1,8 @@
 <app-home></app-home>
-  <form [formGroup]="loginForm">
+  <form style="position: absolute;top: 60px;left: 1%;"  [formGroup]="loginForm">
 <div  class="text-center border border-light p-5" style="width: 500px;margin-left: 660px;margin-top: 150px ; border: 10px; border-top: coral;  ">
 
   <p class="h4 mb-4"  >login</p>
-  <button (click)="loginNavigate('home')"  style="background-color: white; border: white; color: blue;text-decoration: underline;">For entry without registration</button>
  
   <!-- Name -->
   <input #password formControlName="userPassword" type="text" id="defaultSubscriptionFormPassword" class="form-control mb-4" placeholder="Password">

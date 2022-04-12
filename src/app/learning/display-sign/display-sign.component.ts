@@ -1,8 +1,6 @@
 // import { Component, Input, OnInit } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
-import {MatDialog} from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
-import { DialogComponent } from 'src/app/learning/dialog/dialog.component';
 import { Word } from 'src/app/models/word';
 import { SignService } from '../../services/sign.service';
 
@@ -15,7 +13,7 @@ export class DisplaySignComponent implements OnInit {
   NumbersSignArray!:Word[]
   LettersSignArray!:Word[]
  type:string=""
-  constructor(private route:ActivatedRoute,private signService:SignService,public dialog: MatDialog ) {  
+  constructor(private route:ActivatedRoute,private signService:SignService ) {  
    
 
 }
@@ -29,8 +27,5 @@ export class DisplaySignComponent implements OnInit {
     this.type = this.route.snapshot.params['type'];
     
   } 
-  openDialog()
-  {
-    this.dialog.open(DialogComponent);
-  }
+ 
 }

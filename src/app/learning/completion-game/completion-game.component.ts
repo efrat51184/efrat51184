@@ -11,10 +11,12 @@ import { TextService } from 'src/app/services/text.service';
   styleUrls: ['./completion-game.component.scss']
 })
 export class CompletionGameComponent implements OnInit {
-  numberArray!:Text[]
-  letterArray!:Text[]
-  signLetters!:Word[]
-  signNumbers!:Word[]
+  numberArray:Text[]=[]
+  letterArray:Text[]=[]
+  selectedArray:Text[]=[]
+  selectedSign:Word[]=[]
+  signLetters:Word[]=[]
+  signNumbers:Word[]=[]
   ind:number=-1
   size!:number
   type!:string  
@@ -30,8 +32,16 @@ export class CompletionGameComponent implements OnInit {
    changeType(e:string)
    {
     this.type=e
+    if(this.type=='Letters')
+    {
+  this.selectedArray=this.letterArray
+  this.selectedSign=this.signLetters
+    }
+    else{
+      this.selectedArray=this.numberArray
+  this.selectedSign=this.signNumbers
    }
-
+  }
 beginRandNumber(){
   this.nOne=Math.round((Math.random()*3));
   while(this.nOne==0){
@@ -73,12 +83,37 @@ selected(n:number){
 ngAfterContentChecked(): void {
   this.changeDetector.detectChanges();
 }
+t:Text=new Text()
+w2!:Word
+w3!:Word
 ngOnInit(): void {
   this.type = this.route.snapshot.params['type'];
-  this.textService.getLettersText().subscribe(data =>this.letterArray=data)
-  this.textService.getNumbersText().subscribe(data =>this.numberArray=data)
-  this.signService.getletterArray().subscribe(data =>{this.signLetters=data})
-    this.signService.getnumberArray().subscribe(data =>{this.signNumbers=data})
+  // this.textService.getLettersText().subscribe(data =>this.letterArray=data)
+  // this.textService.getNumbersText().subscribe(data =>this.numberArray=data)
+  // this.signService.getletterArray().subscribe(data =>{this.signLetters=data})
+  // this.signService.getnumberArray().subscribe(data =>{this.signNumbers=data})
+  //for example
+  this.t.categoryId=1;
+  this.t.textId=1;
+  this.t.textAnswer=[1,2]
+  this.t.textValue='1'
+  this.w2=new Word(1,1,'1','/assets/picture signs/1.png')
+  this.w3=new Word(1,1,'2','/assets/picture signs/2.png')
+  this.signNumbers.push(this.w2)
+  this.signNumbers.push(this.w3)
+  this.numberArray.push(this.t)
+
+  //end example
+  if(this.type=='Letters')
+  {
+this.selectedArray=this.letterArray
+this.selectedSign=this.signLetters
+  }
+  else{
+    this.selectedArray=this.numberArray
+this.selectedSign=this.signNumbers
+  }
+  
 
 }
 

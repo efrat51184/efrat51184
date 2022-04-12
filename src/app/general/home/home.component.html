@@ -6,7 +6,7 @@
     <ul style="height: 160px;" class="row" >
      
         <li    
-        ><div ><br><img  style=" margin-left:19%" src="/assets/home.png" width="65" height ="65"><br><a  style="top:50%; margin-left: 15%;"(click)="navigate('home')">Home</a></div></li>
+        ><div ><br><img  style=" margin-left:19%" src="/assets/home.png"  width="65" height ="65"><br><a  style="top:50%; margin-left: 15%;"(click)="toHome()">Home</a></div></li>
         <li id="about"><div style="margin-left: 90;" width="114.05" height="141"><br><img style=" margin-left:17%" for="about" src="\assets\about (2).png"width="65" height ="65"><br><a style="margin-left: 15%;" (click)="navigate('about')">About</a></div></li>
         <li>
           <div>
@@ -47,7 +47,9 @@
         </li>
       </ul>
     </div>
-
+    <div *ngIf="isHome==true">
+      <img style="width: 100%;" src="\assets\b.png">
+    </div>
 </body>
 
 

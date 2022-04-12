@@ -19,33 +19,32 @@ export class PracticeComponent implements OnInit {
       
      }
    ngOnInit(): void {
-    this.type = this.route.snapshot.params['type'];
-   // this._router.navigate(['memoryGame',{type:this.type}])
+   this.type = this.route.snapshot.params['type'];
    }
    @Output()
    onChangeType:EventEmitter<string>=new EventEmitter<string>()
-     geeks!: MenuItem[];
-     index: number=0
+    //  geeks!: MenuItem[];
+    //  index: number=0
      type!:string
-     navigate() {
-       if(this.index+1==2)
-       {
-         this.geeks.findIndex
-         this.index =0
-           this._router.navigate(['memoryGame',{type:this.type}])
+    //  navigate() {
+    //    if(this.index+1==2)
+    //    {
+    //      this.geeks.findIndex
+    //      this.index =0
+    //        this._router.navigate(['memoryGame',{type:this.type}])
    
-       }
-       else
-       {
-        this.index += 1
-        if(this.index ==0)
-         this._router.navigate(['memoryGame',{type:this.type}])
-         else
-         this._router.navigate(['completionGame',{type:this.type}])
+    //    }
+    //    else
+    //    {
+    //     this.index += 1
+    //     if(this.index ==0)
+    //      this._router.navigate(['memoryGame',{type:this.type}])
+    //      else
+    //      this._router.navigate(['completionGame',{type:this.type}])
 
-       }
-     }
-     a(s:string)
+    //    }
+    //  }
+    navigate(s:string)
      {
       if(s =='memory')
       this._router.navigate(['memoryGame',{type:this.type}])

@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { CardData } from 'src/app/cardData';
 import { Word } from 'src/app/models/word';
 import { Text } from 'src/app/models/text';
 
-import { DisplayDialogComponent } from '../display-dialog/display-dialog.component';
 import { TextService } from 'src/app/services/text.service';
 import { SignService } from 'src/app/services/sign.service';
 import { ActivatedRoute } from '@angular/router';
+import { PrimeNGConfig } from "primeng/api";
 
 @Component({
   selector: 'app-memory-game',
@@ -28,13 +27,17 @@ export class MemoryGameComponent implements OnInit {
 cards: CardData[] = [];
 flippedCards: CardData[] = [];
 matchedCount:number=0
-  constructor(private route:ActivatedRoute,private dialog: MatDialog,private signService:SignService) { }
+  constructor(private route:ActivatedRoute,private signService:SignService,private primengConfig: PrimeNGConfig) { }
     //בשביל הדוגמא
   w!:Word
 w1!:Word
 w2!:Word
 w3!:Word
+finish: boolean=false;
+ 
   ngOnInit(): void {
+    this.primengConfig.ripple = true;
+
     //בשביל הדוגמא
     this.type = this.route.snapshot.params['type'];
     this.w=new Word(1,1,'a','/assets/picture signs/a.png')
@@ -133,12 +136,17 @@ checkForCardMatch(): void {
       this.matchedCount++;
 
       if (this.matchedCount === (this.cardImages.length/2)) {
-        const dialogRef = this.dialog.open(DisplayDialogComponent, {
-          disableClose: false
-        });
-        this.restart();
-        dialogRef.afterClosed().subscribe(() => {
-        });
+      //  this.dialog.open(DisplayDialogComponent, {
+      //     disableClose: true
+      //   });
+      //   
+      // this.dialog.open(DisplayDialogComponent, {
+      //   data: {
+      //     animal: 'panda',
+      //   },
+      // });
+      this.finish = true;
+      this.restart();
       }
     }
 

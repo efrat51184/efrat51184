@@ -1,12 +1,9 @@
 <app-practice (onChangeType)="changeType($event)"></app-practice>
-<div *ngIf="displayCompletionGame">
-    <div *ngIf="type=='Numbers'">
 
-    <div style="display:inline-block; size: 20%;" *ngFor="let t of numberArray; let z=index" class="col-sm-2">
+    <div  style="position: relative; top: 140px;left:520px;" *ngFor="let t of selectedArray; let z=index" class="col-sm-2">
 
         <!-- קריאה לפונקציית ההגרלה -->
-        <!-- {{beginRandNumber()}} -->
-        <!-- <div>{{beginRandAnswer()}}</div>   -->
+        {{beginRandNumber()}}
         <h3 ><strong>{{t.textValue}}</strong></h3>
          <!-- אם זכתה התשובה הראשונה להיות התשובה הנכונה -->
          <div  *ngFor="let s of t.textAnswer;let i=index">  
@@ -16,7 +13,7 @@
             <!-- הצגת סימני התשובה -->
             <div style="display:inline-block; margin: 10px;" *ngFor="let s of t.textAnswer">
                
-            <img src={{signNumbers[s].signWord}} width="50" height="50">
+            <img src={{selectedSign[s].signWord}} width="50" height="50">
             </div>
         </div>
          <!-- אם לא זכתה התשובה הראשונה להיות התשובה הנכונה -->
@@ -25,39 +22,38 @@
             <!-- הצגת סימני התשובה -->
             <div style="display:inline-block; margin: 10px;" *ngFor="let s of t.textAnswer">
                 {{beginsRandAnswer()}}
-                <img src={{signNumbers[randAnswer].signWord}} width="50" height="50">
+                <img src={{selectedSign[randAnswer].signWord}} width="50" height="50">
             </div>
         </div>
         </div>
     </div>
-</div>
-<div *ngIf="type=='Letters'">
+ <!-- <div *ngIf="type=='Letters'"> -->
 
-    <div style="display:inline-block" *ngFor="let t of letterArray;let z=index" class="col-sm-2">
+    <!-- <div style="display:inline-block" *ngFor="let t of letterArray;let z=index" class="col-sm-2"> -->
         <!-- קריאה לפונקציית ההגרלה -->
-        {{beginsRandAnswer()}}
+        <!-- {{beginsRandAnswer()}}
           
-        <h3 ><strong>{{t.textValue}}</strong></h3>
+        <h3 ><strong>{{t.textValue}}</strong></h3> -->
          <!-- אם זכתה התשובה הראשונה להיות התשובה הנכונה -->
-         <div *ngFor="let s of t.textAnswer;let i=index">
+         <!-- <div *ngFor="let s of t.textAnswer;let i=index">
             <div class="form-check">
                 <input style="background-color: rgb(62, 159, 216);" (click)="selected(i+1)"class="form-check-input" type="radio" name="flexRadioDefault+{{z}}" id="flexRadioDefault1">
                 <br>
-              </div>
+              </div> -->
         <!-- <input (click)="selected(i+1)" type="radio" id="one" name="selectLetter+{{z}}"> -->
         <!--  -->
-        <img  *ngIf="" src="\assets\check-mark.png" width="13" height="18">
-        <div   *ngIf="nOne==i+1">
+        <!-- <img  *ngIf="" src="\assets\check-mark.png" width="13" height="18">
+        <div   *ngIf="nOne==i+1"> -->
             <!-- הצגת סימני התשובה -->
-            <div  style="display:inline-block; margin: 10px;" *ngFor="let s of t.textAnswer">
+            <!-- <div  style="display:inline-block; margin: 10px;" *ngFor="let s of t.textAnswer">
               
                      <img src={{signLetters[s].signWord}} width="50" height="50">
             </div>
-        </div>
+        </div> -->
          <!-- אם לא זכתה התשובה הראשונה להיות התשובה הנכונה -->
-        <div *ngIf="nOne!=i+1">
+        <!-- <div *ngIf="nOne!=i+1"> -->
             <!-- הצגת סימני התשובה -->
-            <div  style="display:inline-block; margin: 10px;" *ngFor="let s of t.textAnswer;let i=index">
+            <!-- <div  style="display:inline-block; margin: 10px;" *ngFor="let s of t.textAnswer;let i=index">
               {{beginsRandAnswer()}} 
               
                 <img src={{signLetters[randAnswer].signWord}} width="50" height="50">
@@ -71,5 +67,4 @@
     <img  *ngIf="ind==z && vx && !f" src="\assets\close (1).png" width="20" height="30">
    </div>
 
-    </div>
-</div>
+    </div>  -->

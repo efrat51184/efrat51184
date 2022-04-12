@@ -1,13 +1,13 @@
 <app-home (onChangeTypePractice)="changeType($event)"></app-home>
 
 <!-- לזכור לשנות לנתיב של המשחק זכרון -->
-<p-steps (click)="navigate()"
+<!-- <p-steps (click)="navigate()"
   [model]="[
     { label: 'Memory Game' },
     { label: 'Completion Game' }
   ]"
   [(activeIndex)]="index"
   [readonly]="true">
-</p-steps><br />
-<button (click)="a('memory')" type="button" class="btn btn-outline-info">Memory Game</button>
-<button (click)="a('completion')" type="button" class="btn btn-outline-info">Completion Game</button>
+</p-steps><br /> -->
+<button style="position:absolute;top:46%;left:30% ;" (click)="navigate('memory')" type="button" class="btn btn-outline-info">Memory Game</button>
+<button style="position:absolute;top:46%;left:60% ;"  (click)="navigate('completion')" type="button" class="btn btn-outline-info">Completion Game</button>
